@@ -8,7 +8,10 @@ feature 'delete bookmarks' do
         fill_in('new_bookmark', with: 'www.golly.com')
         fill_in('title', with: 'Golly')
         click_on('Add as Bookmark')
-        click_on('Delete')
+        click_on('Update')
+        fill_in('url', with: 'www.facebook.com')
+        fill_in('title', with: 'Thomas')
+        click_on('Submit')
         expect(page).not_to have_content('Golly')
     end
 end

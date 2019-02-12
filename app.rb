@@ -24,6 +24,16 @@ enable :sessions, :method_override
     redirect '/bookmarks'
   end
 
+  get '/bookmarks/:id/edit' do
+    session[:id] = params[:id]
+    erb (:bookmark_editor)
+  end
+
+  patch '/bookmarks2' do
+    Bookmark.update(params[:title], params[:url], session[:id])
+    redirect '/bookmarks'
+  end
+
  run! if app_file == $0
 
 end

@@ -33,9 +33,20 @@ describe Bookmark do
 
     describe '#delete' do
         it 'deletes a bookmark from the database' do
-            bookmark = Bookmark.create('http://www.google.con', 'Google')
+            bookmark = Bookmark.create('http://www.google.com', 'Google')
             Bookmark.delete(bookmark.id)
             expect(Bookmark.all.length).to eq(0)
+        end
+    end
+
+    describe '#update' do
+        it 'updates the title and url of existing bookmark' do
+            bookmark = Bookmark.create('http://www.google.com', 'Google')
+            updated_bookmark = Bookmark.update('Facebook', 'www.facebook.com', bookmark.id)
+
+            expect(updated_bookmark.title).to eq('Facebook')
+            expect(updated_bookmark.url).to eq('www.facebook.com')
+
         end
     end
 end
