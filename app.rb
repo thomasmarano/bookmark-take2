@@ -7,7 +7,7 @@ class BookmarkManager < Sinatra::Base
    erb (:index)
   end
 
-enable :sessions
+enable :sessions, :method_override
 
   get '/bookmarks' do
     @bookmarks = Bookmark.all
@@ -16,6 +16,11 @@ enable :sessions
 
   post '/add-bookmark' do
     Bookmark.create(params[:new_bookmark], params[:title])
+    redirect '/bookmarks'
+  end
+
+  delete '/bookmarks/:id' do
+    Bookmark.delete(params[:id])
     redirect '/bookmarks'
   end
 

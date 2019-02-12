@@ -16,6 +16,25 @@
         null,
         null
       ],
+      "/Users/Thomas/Desktop/bookmark-take2/spec/features/delete_bookmarks_spec.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/Thomas/Desktop/bookmark-take2/spec/features/viewing_bookmarks_spec.rb": [
         1,
         1,
@@ -66,9 +85,17 @@
         1,
         null,
         null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
         null
       ]
     },
-    "timestamp": 1549564537
+    "timestamp": 1549997746
   }
 }

@@ -30,4 +30,12 @@ describe Bookmark do
             expect(bookmark.title).to eq('Edley')
         end
     end
+
+    describe '#delete' do
+        it 'deletes a bookmark from the database' do
+            bookmark = Bookmark.create('http://www.google.con', 'Google')
+            Bookmark.delete(bookmark.id)
+            expect(Bookmark.all.length).to eq(0)
+        end
+    end
 end
