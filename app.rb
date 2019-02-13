@@ -1,6 +1,8 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'lib/bookmark'
 require './database_connection_setup'
+require 'uri'
 
 class BookmarkManager < Sinatra::Base
 
@@ -16,7 +18,12 @@ enable :sessions, :method_override
   end
 
   post '/add-bookmark' do
-    Bookmark.create(params[:new_bookmark], params[:title])
+    if params[:new_bookmark] =~ /\A#{URI::regexp(['http', 'https'])}\z/
+        Bookmark.create(params[:new_bookmark], params[:title])
+    else
+        
+    end
+
     redirect '/bookmarks'
   end
 

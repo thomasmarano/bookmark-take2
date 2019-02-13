@@ -5,13 +5,3 @@ if ENV['ENVIRONMENT'] == 'test'
 else
   DatabaseConnection.setup('bookmark_manager')
 end
-
-
-#
-# def database_connection_setup_meth
-#   if ENV['ENVIRONMENT'] == 'test'
-#     DatabaseConnection.setup('bookmark_manager_test')
-#   else
-#     DatabaseConnection.setup('bookmark_manager')
-#   end
-# end

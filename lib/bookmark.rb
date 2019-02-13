@@ -36,5 +36,5 @@ class Bookmark
       Bookmark.new(result[0]['id'], result[0]['url'], result[0]['title'])
     end
 
-    
+
 end
