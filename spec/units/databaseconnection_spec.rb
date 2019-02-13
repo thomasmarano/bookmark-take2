@@ -4,8 +4,21 @@ describe DatabaseConnection do
 
 
   describe '#setup' do
-    it 'responds to database setup the method' do
-      expect(DatabaseConnection).to respond_to(:setup).with(1).argument
+
+    it 'sets up a connection to a database through PG' do
+      expect(PG).to receive(:connect).with(dbname: 'bookmark_manager_test')
+      DatabaseConnection.setup('bookmark_manager_test')
+    end
+
+    it 'sets up a connection that persists'do
+        connection = DatabaseConnection.setup('bookmark_manager_test')
+        expect(DatabaseConnection.connection).to eq(connection)
+    end
+
+    it 'runs a query through PG' do
+      connection = DatabaseConnection.setup('bookmark_manager_test')
+      expect(connection).to receive(:exec).with("SELECT * FROM bookmarks;")
+      DatabaseConnection.query("SELECT * FROM bookmarks;")
     end
   end
 end

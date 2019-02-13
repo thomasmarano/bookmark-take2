@@ -129,6 +129,19 @@
         null,
         null,
         1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
         1,
         1,
         null,
@@ -139,19 +152,16 @@
         null,
         null,
         null,
-        null
-      ],
-      "/Users/Thomas/Desktop/bookmark-take2/lib/databaseconnection.rb": [
-        1,
         null,
-        1,
         null,
-        1,
+        null,
+        null,
+        null,
         null,
         null,
         null
       ]
     },
-    "timestamp": 1550000469
+    "timestamp": 1550083632
   }
 }
