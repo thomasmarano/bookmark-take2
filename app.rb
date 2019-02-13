@@ -21,7 +21,7 @@ enable :sessions, :method_override
     if params[:new_bookmark] =~ /\A#{URI::regexp(['http', 'https'])}\z/
         Bookmark.create(params[:new_bookmark], params[:title])
     else
-        
+
     end
 
     redirect '/bookmarks'
@@ -35,6 +35,17 @@ enable :sessions, :method_override
   get '/bookmarks/:id/edit' do
     session[:id] = params[:id]
     erb (:bookmark_editor)
+  end
+
+  get '/bookmarks/:id/comment' do
+    @bookmark_id = params[:id]
+    erb (:add_comments)
+  end
+
+  post '/bookmarks/:id/comments' do
+    connection = PG.connect(dbname: 'bookmark_manager_test')
+    connection.exec("INSERT INTO comments (text, bookmark_id) VALUES ('#{params[:text]}', '#{params[:id]}');")
+    redirect '/bookmarks'
   end
 
   patch '/bookmarks2' do
